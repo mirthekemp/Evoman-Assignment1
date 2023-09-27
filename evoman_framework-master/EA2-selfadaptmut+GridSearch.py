@@ -51,16 +51,16 @@ n_weights = (env.get_num_sensors()+1)*n_hidden_neurons + (n_hidden_neurons+1)*5 
 upper_bound = 1 # upper bound of start weights
 lower_bound = -1 # lower bound of start weights
 pop_size = 100
-n_generations = 2
-n_runs = 2
+n_generations = 30
+n_runs = 10
 #mutation_rate = 0.2
 #sigma = 1
 #learning_rate = 0.1
 boundary = 0.001
 #k = 2
 
-mutation_rate_values = [0.1, 0.2, 0.3]
-sigma_values = [0.5, 1.0, 1.5]
+mutation_rate_values = [0.01, 0.1, 0.2]
+sigma_values = [0.1, 0.5, 1.0]
 learning_rate_values = [0.1, 0.2, 0.4]
 k_values = [2, 5, 10]
 
