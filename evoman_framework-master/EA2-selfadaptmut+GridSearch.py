@@ -22,7 +22,7 @@ headless = True
 if headless:
     os.environ["SDL_VIDEODRIVER"] = "dummy"
 
-enemy = 2 # MAKE SURE TO ALSO CHANGE LINE 36
+enemy = 1 # MAKE SURE TO ALSO CHANGE LINE 36
 # Create a folder for the experiment in which all the data are stored
 experiment_name = f'GRID_EA2_enemy{enemy}'
 if not os.path.exists(experiment_name):
@@ -33,7 +33,7 @@ n_hidden_neurons = 10
 
 # Initializes simulation in individual evolution mode, for single static enemy.
 env = Environment(experiment_name=experiment_name,
-                  enemies=[2],
+                  enemies=[1],
                   playermode="ai",
                   player_controller=player_controller(n_hidden_neurons),
                   enemymode="static",
@@ -51,8 +51,8 @@ n_weights = (env.get_num_sensors()+1)*n_hidden_neurons + (n_hidden_neurons+1)*5 
 upper_bound = 1 # upper bound of start weights
 lower_bound = -1 # lower bound of start weights
 pop_size = 100
-n_generations = 30
-n_runs = 10
+n_generations = 2
+n_runs = 2
 #mutation_rate = 0.2
 #sigma = 1
 #learning_rate = 0.1
@@ -314,7 +314,7 @@ for mutation_rate in mutation_rate_values:
                         sigma = update_sigma(sigma, learning_rate, boundary)
                         
                         # Survival selection (10 elite parents + 90 random children)
-                        pop = elitism_survival_selection(pop, pop_fit, offspring, 10, 90)
+                        pop = elitism_survival_selection(pop, pop_fit, offspring, 1, 99)
                         pop_fit_gain = evaluate(pop)
                         pop_fit = pop_fit_gain[:,0]
                         pop_gain = pop_fit_gain[:,1]
