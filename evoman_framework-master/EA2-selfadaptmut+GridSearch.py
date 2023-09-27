@@ -340,11 +340,11 @@ for mutation_rate in mutation_rate_values:
                         print( '\n RUN '+str(r)+ ' GENERATION '+str(i)+' '+str(round(pop_fit[best],6))+' '+str(round(mean,6))+' '+str(round(std,6)))        
                         experiment_data.write('\n'+str(r)+' '+str(i)+' '+str(round(pop_fit[best],6))+' '+str(round(mean,6))+' '+str(round(std,6))   )
                         experiment_data.close()
-                        print(i)
+                        #print(i)
                         if i == (n_generations-1):
-                            print('hier komt ie wel 1')
+                            #print('hier komt ie wel 1')
                             if max(pop_fit) > current_fit:
-                                print('hier komt ie ook 2')
+                                #print('hier komt ie ook 2')
                                 best_hyperparameters = [mutation_rate, sigmav, learning_rate, k]
                                 current_fit = max(pop_fit)
 
