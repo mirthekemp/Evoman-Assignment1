@@ -261,7 +261,7 @@ if __name__ == "__main__":
             offspring = [uniform_mutation(gene, mutation_rate) for gene in offspring]
             
             # Survival selection (10 elite parents + 90 random children)
-            pop = elitism_survival_selection(pop, pop_fit, offspring, 10, 90)
+            pop = elitism_survival_selection(pop, pop_fit, offspring, 1, 99)
             pop_fit_gain = evaluate(pop)
             pop_fit = pop_fit_gain[:,0]
             pop_gain = pop_fit_gain[:,1]
