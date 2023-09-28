@@ -38,14 +38,14 @@ for result in results_list:
     plt.figure(figsize=(10, 6))
 
     # Plot mean fitness with std deviation as a shaded region
-    sns.lineplot(data=grouped, x='Gen', y='Mean_mean', label='Mean Fitness', color='blue')
+    sns.lineplot(data=grouped, x='Gen', y='Mean_mean', label='Average Mean Fitness', color='blue')
     plt.fill_between(grouped['Gen'], 
                     grouped['Mean_mean'] - grouped['Mean_std'], 
                     grouped['Mean_mean'] + grouped['Mean_std'], 
                     color='blue', alpha=0.2)
 
     # Plot max fitness with std deviation as a shaded region
-    sns.lineplot(data=grouped, x='Gen', y='Best fit_mean', label='Best Fit', color='red')
+    sns.lineplot(data=grouped, x='Gen', y='Best fit_mean', label='Average Max Fitness', color='red')
     plt.fill_between(grouped['Gen'], 
                     grouped['Best fit_mean'] - grouped['Best fit_std'], 
                     grouped['Best fit_mean'] + grouped['Best fit_std'], 
@@ -53,7 +53,7 @@ for result in results_list:
 
     # Set labels and title
     plt.xlabel('Generations')
-    plt.ylabel('Fitness')
+    plt.ylabel('Fitness Score')
     plt.title('Fitness over Generations')
 
     # Add legend
