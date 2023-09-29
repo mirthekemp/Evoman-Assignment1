@@ -282,9 +282,9 @@ if __name__ == "__main__":
 
         # Saves result
         print( '\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+' '+str(round(std,6)))    
-        experiment_data  = open(experiment_name+'/results.txt','a')
-        experiment_data.write('\n RUN '+str(r)+' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
-        experiment_data.close()
+        #experiment_data  = open(experiment_name+'/results.txt','a')
+        #experiment_data.write('\n RUN '+str(r)+' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
+        #experiment_data.close()
 
         result_matrix_max[r,i]=np.max(pop_fit)
         result_matrix_mean[r,i]=np.mean(pop_fit)
@@ -318,9 +318,9 @@ if __name__ == "__main__":
 
             # Saves result
             print('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))        
-            experiment_data  = open(experiment_name+'/results.txt','a')
-            experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
-            experiment_data.close()
+            #experiment_data  = open(experiment_name+'/results.txt','a')
+            #experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
+            #experiment_data.close()
 
 
             result_matrix_max[r,i]=np.max(pop_fit)
@@ -339,6 +339,6 @@ if __name__ == "__main__":
     df = pd.DataFrame(data=d)
     print(df)
     # makes csv file
-    df.to_csv(f'{experiment_name}\{experiment_name}.csv', index = False)
+    #df.to_csv(f'{experiment_name}\{experiment_name}.csv', index = False)
     
     
