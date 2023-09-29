@@ -50,19 +50,24 @@ ax.set_title(f'Gain distribution per algorithm - enemy {enemy}', fontsize=16)
 ax.set_xlabel('EAs', fontsize=12)
 ax.set_ylabel('Gain', fontsize=12)
 ax.grid(axis='y', linestyle='--', alpha=0.7)
+#  save figure
+plt.savefig(f'EA_BOXPLOTS\Boxplots_EAvEA2_enemy{enemy}')
+plt.show()
 
-#seaborn
-data = _10runs_2enemies
+
+#seaborn:
+# Create a Seaborn-style box plot
 fig, ax = plt.subplots(figsize=(8, 6))
 sns.boxplot(data=_10runs_2enemies)
 ax.set_title(f'Gain distribution per algorithm - enemy {enemy}', fontsize=16)
 ax.set_xlabel('EAs', fontsize=12)
 ax.set_ylabel('Gain', fontsize=12)
 ax.grid(axis='y', linestyle='--', alpha=0.7)
-
 # Set x-axis labels manually
 ax.set_xticklabels(['EA1-UM', 'EA2-SAM'])
 plt.show()
+
+
 
 
 
