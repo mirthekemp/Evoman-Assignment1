@@ -15,11 +15,11 @@ fig, ax = plt.subplots(figsize=(8, 6))
 sns.boxplot(df['Data'], palette=custom_cmap, boxprops=dict(alpha=0.65))
 ax.set_title(f'Gain Distribution per Enemy and Algorithm')
 ax.set_ylabel('Gain', fontsize=12)
-ax.set_xlabel('EAs', fontsize=12, labelpad=15)
+ax.set_xlabel('EAs', fontsize=12, labelpad=10)
 
 ax.grid(axis='y', linestyle='--', alpha=0.5)
 original_labels = ['EA1-UM', 'EA2-SAM', 'EA1-UM', 'EA2-SAM', 'EA1-UM', 'EA2-SAM']
-ax.set_xticklabels(original_labels, y=-0.02)
+ax.set_xticklabels(original_labels, y=-0.03)
 for line in ax.lines:
     if len(line.get_xdata()) == 2:  # Median line has 2 x-values
         line.set(lw=1)  # Set the line width to make it bold
@@ -28,8 +28,8 @@ ax2 = ax.twiny()
 ax2.set_xlim(ax.get_xlim())
 grouped_x_positions = [0.5, 2.5, 4.5]
 ax2.set_xticks(grouped_x_positions)
-ax2.set_xticklabels(grouped_labels, y=-0.04, va='center')
-plt.savefig(f'EA_BOXPLOTS\Boxplots_EAvEA2_all_enemiesV2')
+ax2.set_xticklabels(grouped_labels, y=-0.045, va='center')
+plt.savefig(f'EA_BOXPLOTS\Boxplots_EAvEA2_all_enemiesV1')
 plt.show()
 
 
