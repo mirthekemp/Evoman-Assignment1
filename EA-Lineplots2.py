@@ -10,13 +10,13 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
-if not os.path.exists('EA_LINEPLOTS'):
-    os.makedirs('EA_LINEPLOTS')
+if not os.path.exists('EA_LINEPLOTS2'):
+    os.makedirs('EA_LINEPLOTS2')
 
 enemy = 7
-alg = 'UM'
+alg = 'SAM'
 # Create a list with all of the .csv files you want to plot
-result = f'EA1_enemy{enemy}/EA1_enemy{enemy}.csv'
+result = f'EA2_enemy{enemy}/EA2_enemy{enemy}.csv'
 
 df = pd.read_csv(result)
 
@@ -72,7 +72,7 @@ name = result.replace('.csv', '').split("/")[-1]
 file_name = name + '.png'
 print(file_name)
 
-plt.savefig(f'EA_LINEPLOTS/2{file_name}')
+plt.savefig(f'EA_LINEPLOTS2/{file_name}')
 
 # Show the plot
 plt.show()

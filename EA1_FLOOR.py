@@ -22,9 +22,9 @@ headless = True
 if headless:
     os.environ["SDL_VIDEODRIVER"] = "dummy"
 
-enemy = 7  # MAKE SURE TO ALSO CHANGE LINE 36
+enemy = 7 # MAKE SURE TO ALSO CHANGE LINE 36
 # Create a folder for the experiment in which all the data are stored
-experiment_name = f'EA1_enemy{enemy}'
+experiment_name = f'EA1_NUM2_enemy{enemy}'
 if not os.path.exists(experiment_name):
     os.makedirs(experiment_name)
 
@@ -139,9 +139,9 @@ def whole_arithmic_crossover(pop, pop_fit, k, alpha=0.5):
         offspring.extend([child1, child2])
     return np.array(offspring)
 
-def uniform_mutation(offspring, mutation_rate):
+def non_uniform_mutation(offspring, mutation_rate):
     """
-    Apply unifom mutation to the offspring.
+    Apply non unifom mutation to the offspring.
 
     Args:
         offspring (numpy.ndarray): The offspring population.
@@ -151,7 +151,12 @@ def uniform_mutation(offspring, mutation_rate):
     """
     for i in range(len(offspring)):
         if np.random.uniform(0,1) <= mutation_rate:
-            offspring[i] += np.random.uniform(-1, 1)
+            offspring[i] += np.random.normal(0, 1)
+            if offspring[i] > upper_bound:
+                offspring[i] = upper_bound
+            elif offspring[i] <lower_bound:
+                offspring[i] = lower_bound
+
     return offspring
 
 def elitism(pop, pop_fit, x):
@@ -239,9 +244,9 @@ if __name__ == "__main__":
         
         # Saves result
         print('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))    
-        #experiment_data  = open(experiment_name+'/results.txt','a')
-        #experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
-        #experiment_data.close()
+        experiment_data  = open(experiment_name+'/results.txt','a')
+        experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
+        experiment_data.close()
 
         result_matrix_max[r,i]=np.max(pop_fit)
         result_matrix_mean[r,i]=np.mean(pop_fit)
@@ -259,7 +264,7 @@ if __name__ == "__main__":
         for i in range(1,n_generations):
             # Create offspring applying crossover and mutation
             offspring = whole_arithmic_crossover(pop, pop_fit, k, alpha=0.5)
-            offspring = [uniform_mutation(gene, mutation_rate) for gene in offspring]
+            offspring = [non_uniform_mutation(gene, mutation_rate) for gene in offspring]
             
             # Survival selection (10 elite parents + 90 random children)
             pop = elitism_survival_selection(pop, pop_fit, offspring, 1, 99)
@@ -274,9 +279,9 @@ if __name__ == "__main__":
 
             # Saves result
             print('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))    
-            #experiment_data  = open(experiment_name+'/results.txt','a')
-            #experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
-            #experiment_data.close()
+            experiment_data  = open(experiment_name+'/results.txt','a')
+            experiment_data.write('\n RUN '+str(r)+ ' GENERATION '+str(i)+'  '+str(round(pop_gain[best],6))+'  '+str(round(pop_fit[best],6))+'  '+str(round(mean,6))+'  '+str(round(std,6)))
+            experiment_data.close()
 
             result_matrix_max[r,i]=np.max(pop_fit)
             result_matrix_mean[r,i]=np.mean(pop_fit)
@@ -290,21 +295,9 @@ if __name__ == "__main__":
             std_fitness.append(std)
             best_solutions.append(best_solution)
 
-            # #check if best solution of generation wins the game:
-            # if i == n_generations-1:
-            #     fit,p_energy,e_energy,duration = env.play(pcont=pop[best])
-            #     if e_energy ==0:
-            #         game_lostwon.append('won')
-            #     else:
-            #         game_lostwon.append('lost')
     d = {"Run": indices_run, "Gen": indices_gen, "gain": best_gain, "Best fit": best_fit, "Mean": mean_fitness, "STD": std_fitness, "BEST SOL": best_solutions}
     df = pd.DataFrame(data=d)
-    # num_rows = len(df)
-    # # Fill the DataFrame with values from the list every 30th row
-    # for i in range(0, num_rows):
-    #     if i % 30 == 29 and i // 30 < len(game_lostwon):
-    #         df.loc[i, 'lost/won'] = game_lostwon[i // 30]
     print(df)
     #makes csv file
-    #df.to_csv(f'{experiment_name}\{experiment_name}.csv', index=False)
+    df.to_csv(f'{experiment_name}\{experiment_name}.csv', index=False)
     

@@ -23,7 +23,7 @@ if not os.path.exists('EA_BOXPLOTS'):
     os.makedirs('EA_BOXPLOTS')
 
 enemy = 7
-results_list = [f'EA1_enemy{enemy}/EA1_enemy{enemy}.csv', f'EA2_enemy{enemy}/EA2_enemy{enemy}.csv']
+results_list = [f'EA1_NUM2_enemy{enemy}/EA1_NUM2_enemy{enemy}.csv', f'EA2_enemy{enemy}/EA2_enemy{enemy}.csv']
 _10runs_2enemies = []
 
 for result in results_list:
@@ -45,7 +45,7 @@ for result in results_list:
 print(_10runs_2enemies)
 
 for sublist in enumerate(_10runs_2enemies):
-    with open(f'EA_BOXPLOTS/data.csv', 'a', newline='') as csvfile:
+    with open(f'EA_BOXPLOTS/data3.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(sublist)
 
