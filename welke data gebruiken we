@@ -1,0 +1,45 @@
+belangrijkste mappen:
+1. EA1_FLOOR.py
+2. EA2_FLOOR.py
+3. EA-Lineplots2.py 
+4. EA-1Boxplot.py
+5. EA-1Boxplot_data
+
+uit welke mappen gebruiken we de uiteindelijke data:
+- EA1_NUM2_enemy1, EA1_NUM2_enemy6, EA1_NUM2_enemy7
+- EA2_enemy1, EA2_enemy6, EA2_enemy7
+
+alle correcte lineplots staat in EA_LINEPLOTS2  (gemaakt met EA-Lineplots2.py)
+- EA1_NUM2_enemy1, EA1_NUM2_enemy6, EA1_NUM2_enemy7, EA2_enemy1, EA2_enemy6, EA2_enemy7
++ de screenshot waar alle lineplots samen zitten --> heb ik in verslkag geplaatst (all lineplots.png)
+
+EA_BOXPLOTS
+- de uiteindelijke data voor de boxplots is data3.csv   --> ik denk dat we op deze data dus ook te t test moeten doen 
+- Boxplots_EAvEA2_all_enemies_3.png   
+--> 2 files nodig voor boxplot
+      - EA-1Boxplot.py
+      - EA-1Boxplot_data
+
+gridsearch: EA_Gridsearch 
+
+
+wat gebruiken we niet:
+-----------------------------------------------
+In EA_BOXPLOTS:
+met non uniform maar niet gebruikt --> niet relevant 
+- data2.csv --> hebben we niet gebruikt  = ook NUM (maar slecht)
+- Boxplots_EAvEA2_all_enemies_2.png
+
+nog met uniform mutation: --> niet meer relevant
+- data.csv 
+- Boxplots_EAvEA2_enemy1.png, Boxplots_EAvEA2_enemy6.png, Boxplots_EAvEA2_enemy7.png   --> gemaakt dmc 
+- Boxplots_EAvEA2_all_enemies.png
+- Boxplots_EAvEA2_all_enemiesV2.png
+- Boxplots_EAvEA2_all_enemiesV1.png
+
+
+oude files:
+- EA-lineplots.py
+- EA_boxplots_correct.py
+
+
