@@ -12,7 +12,7 @@ custom_palette = sns.color_palette(['red','blue'])
 custom_cmap = sns.color_palette(custom_palette)
 
 fig, ax = plt.subplots(figsize=(8, 6))
-sns.boxplot(df['Data'], palette=custom_cmap, boxprops=dict(alpha=0.65))
+sns.boxplot(df['Data'], palette=custom_cmap, boxprops=dict(alpha=0.4))
 ax.set_title(f'Gain Distribution per Enemy and Algorithm')
 ax.set_ylabel('Gain', fontsize=12)
 ax.set_xlabel('EAs', fontsize=12, labelpad=10)
