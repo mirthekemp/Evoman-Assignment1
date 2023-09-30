@@ -68,7 +68,7 @@ for enemy_nr in [1, 6, 7]:
     # Perform a t-test between the two groups at generation 4, 9 and 29
     for gen in [29]: # [4, 9, 29]:
 
-        csv_EA1 = f'EA1_enemy{enemy_nr}/EA1_enemy{enemy_nr}.csv'
+        csv_EA1 = f'EA1_NUM2_enemy{enemy_nr}/EA1_NUM2_enemy{enemy_nr}.csv' #oud: csv_EA1 = f'EA1_enemy{enemy_nr}/EA1_enemy{enemy_nr}.csv'
         csv_EA2 = f'EA2_enemy{enemy_nr}/EA2_enemy{enemy_nr}.csv'
 
         data_EA1 = create_group(csv_EA1, gen)
